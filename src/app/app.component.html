@@ -1,0 +1,22 @@
+<app-block-header></app-block-header>
+
+<main>
+
+  <div *ngIf="router.url === '/'" class="position-relative overflow-hidden p-1 p-md-1 text-center bg-light">
+    <div class="col-md-6 p-lg-5 mx-auto mt-5">
+      <h1 class="display-6 fw-normal">EcoStyle</h1>
+      <p class="lead fw-normal">Your lifestyle is Your choice. Living in harmony with nature is easy. Do you want to know how? </p>
+      <a class="btn btn-outline-secondary" [routerLink]="['/about']">I want to know more</a>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>
+
+<app-block-footer></app-block-footer>
+
+<app-form-auth></app-form-auth>

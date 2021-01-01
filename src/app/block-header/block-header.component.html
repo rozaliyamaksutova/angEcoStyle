@@ -1,0 +1,18 @@
+<header class="site-header sticky-top py-1">
+  <nav class="container d-flex flex-row justify-content-between align-items-center">
+    <div class="logo">
+      <a class="py-2" [routerLink]="['/']">
+        <img src="./assets/img/logo.png" alt="">
+      </a>
+    </div>
+    <button class="navbar-toggler d-block d-md-none">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="side d-none d-md-block">
+      <app-block-menu></app-block-menu>
+      <app-block-basket></app-block-basket>
+      <a *ngIf="!this.userService.userLogged" class="btn btn-outline-primary ms-1" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Sign in</a>
+      <span *ngIf="this.userService.userLogged" class="user ms-3 text-info">{{this.userService.userName}}</span>
+    </div>
+  </nav>
+</header>

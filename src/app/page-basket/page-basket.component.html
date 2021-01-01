@@ -1,0 +1,45 @@
+<h1>Cart</h1>
+
+<div class="content">
+  <form action="#" *ngIf="basketItems.length">
+    <table class="table basket-table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Icon</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of basketItems; let i = index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>
+          <img width="128px" src="{{product.img}}" alt="">
+        </td>
+        <td>{{product.name}}</td>
+        <td>${{product.price}}</td>
+        <td class="text-end">
+          <a [routerLink]="" (click)="removeItem(product.id)" class="btn btn-danger">x</a>
+        </td>
+      </tr>
+      <tr class="total">
+        <td colspan="3"></td>
+        <td>Total:</td>
+        <td>${{getTotal()}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="text-end">
+      <a routerLink="/orderend" (click)="basketClear()" class="btn btn-primary checkout">Checkout</a>
+    </div>
+  </form>
+
+  <div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-light" *ngIf="!basketItems.length">
+    <div class="col-md-6 p-lg-5 mx-auto mt-5">
+      <h1 class="display-4 fw-normal">Cart is empty</h1>
+      <a class="btn btn-outline-primary" [routerLink]="['/products']">Go to products</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="products">
+  <div class="row">
+
+    <div class="col-12 col-md-4 p-3" *ngFor="let product of products">
+      <div class="product p-3">
+        <div class="product-image text-center">
+          <a routerLink="/products/{{product.id}}">
+            <img class="mw-100 mh-100 m-auto" src="{{product.img}}" alt="">
+          </a>
+        </div>
+        <div class="product-name mt-3">
+          <a routerLink="/products/{{product.id}}">{{product.name}}</a>
+        </div>
+        <div class="product-controls text-center mt-3 d-flex justify-content-between fs-3">
+          <div class="product-price">${{product.price}}</div>
+          <a [routerLink]="" (click)="addToBasket(product.id)" *ngIf="!product.basket" class="btn btn-outline-success">Buy</a>
+          <a routerLink="/basket" *ngIf="product.basket" class="btn btn-outline-danger">Go to cart</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
